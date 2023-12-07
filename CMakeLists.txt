@@ -12,3 +12,4 @@ add_executable(hamming ${SRC_FILES})
 # Include all headers
 target_include_directories(hamming PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
+add_subdirectory(tests)
