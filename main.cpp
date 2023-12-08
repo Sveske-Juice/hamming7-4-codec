@@ -3,8 +3,6 @@
 
 #include "hamming_functions.h"
 
-#define CHUNK_SIZE 7 // Amount of information bits in a codeword
-
 const char* msg = "Hello";
 
 int main(int argc, char** argv) {
