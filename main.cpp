@@ -1,15 +1,16 @@
+#include <bitset>
 #include <cstdint>
-#include <stdio.h>
+#include <iostream>
 
-#include "hamming_functions.h"
+#include "hamming7_4.h"
 
 const char* msg = "Hello";
 
 int main(int argc, char** argv) {
-    uint8_t cw1 = 0b00111;
-    uint8_t cw2 = 0b00111;
-
-    printf("D(%d, %d) = %d\n", cw1, cw2, hamming_distance(&cw1, &cw2, 1));
+    for (int i = 0; i < 16; i++) {
+        uint8_t cw = encode_hamming7_4(i);
+        std::cout << std::bitset<8>(cw) << std::endl;
+    }
 
     return 0;
 }
