@@ -11,16 +11,16 @@ TEST_CASE("Hamming (7,4) Encoding", "[hamming (7,4) encode]") {
 
     // More byte tests
     uint8_t c1[] = {0, 0b1111, 0b0101};
-    uint8_t outBuffer1[3] = {0};
-    uint8_t correctCW1[] = {0, 0b11111110, 0b01001010};
-    encode_hamming7_4(c1, outBuffer1, 3);
-    REQUIRE(memcmp(outBuffer1, correctCW1, 3) == 0);
+    uint8_t outBuffer1[6] = {0};
+    uint8_t correctCW1[] = {0, 0, 0b11111110, 0, 0b01001010, 0};
+    encode_hamming7_4(c1, outBuffer1, sizeof(outBuffer1));
+    REQUIRE(memcmp(outBuffer1, correctCW1, 6) == 0);
 
     uint8_t c2[1024] = {0};
-    uint8_t outBuffer2[1024] = {0};
-    uint8_t correctCW2[1024] = {0};
-    encode_hamming7_4(c2, outBuffer2, 1024);
-    REQUIRE(memcmp(outBuffer2, correctCW2, 1024) == 0);
+    uint8_t outBuffer2[2048] = {0};
+    uint8_t correctCW2[2048] = {0};
+    encode_hamming7_4(c2, outBuffer2, 2048);
+    REQUIRE(memcmp(outBuffer2, correctCW2, 2048) == 0);
 }
 
 TEST_CASE("Hamming (7,4) Decoding", "[hamming (7,4) decode]") {
