@@ -18,11 +18,12 @@ int encode_hamming7_4(uint8_t *buffer, uint8_t *codeword, unsigned int size) {
     for (int i = 0; i < size; i++) {
         uint8_t code = buffer[i];
 
-        // Encode lower part
-        codeword[i * 2] = encode_hamming7_4chunk(code);
-
         // Encode upper part
-        codeword[i * 2 + 1] = encode_hamming7_4chunk(code >> 4);
+        codeword[i * 2] = encode_hamming7_4chunk(code >> 4);
+
+        // Encode lower part
+        codeword[i * 2 + 1] = encode_hamming7_4chunk(code & 0x0F);
+
     }
     return 0;
 }
@@ -50,9 +51,9 @@ uint8_t encode_hamming7_4chunk(uint8_t code) {
 
 void decode_hamming7_4(uint8_t *codewordBuf, uint8_t *outBuffer,
                       unsigned int size) {
-    for (int i = 0; i < size; i++) {
-        uint8_t lower = decode_hamming7_4chunk(codewordBuf[i]);
-        uint8_t upper = decode_hamming7_4chunk(codewordBuf[++i]) << 4;
+    for (int i = 0; i < size; i += 2) {
+        uint8_t upper = decode_hamming7_4chunk(codewordBuf[i]) << 4;
+        uint8_t lower = decode_hamming7_4chunk(codewordBuf[i+1]);
         outBuffer[i] = lower | upper;
     }
 }
