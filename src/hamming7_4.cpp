@@ -51,10 +51,10 @@ uint8_t encode_hamming7_4chunk(uint8_t code) {
 
 void decode_hamming7_4(uint8_t *codewordBuf, uint8_t *outBuffer,
                       unsigned int size) {
-    for (int i = 0; i < size; i += 2) {
+    for (int i = 0, j = 0; i < size; i += 2, j++) {
         uint8_t upper = decode_hamming7_4chunk(codewordBuf[i]) << 4;
         uint8_t lower = decode_hamming7_4chunk(codewordBuf[i+1]);
-        outBuffer[i] = lower | upper;
+        outBuffer[j] = lower | upper;
     }
 }
 
