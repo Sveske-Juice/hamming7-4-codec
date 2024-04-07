@@ -3,6 +3,14 @@ This is a low-level hamming (7,4,3) codec, written in C++ using bitwise operator
 This codec is part of my [SOP](https://eng.uvm.dk/upper-secondary-education/national-upper-secondary-education-programmes/the-higher-technical-examination-programme--htx-).
 The project report, can be read [here](https://github.com/Sveske-Juice/hamming7-4-codec/blob/dd7fc7e6e56def173401aa85b3a24f58be36c71a/error_correction_codes_carl_benjamin_s_dreyer_sop_2023.pdf) (in danish).
 
+# Features
+- [x] Encode bytes
+- [x] Encode block of bytes
+- [x] Decode bytes
+- [x] Decode block of bytes
+- [x] Hamming Distance utility function
+- [x] Hamming weight utility function
+
 ## Build
 If you're on Linux just type `make` in the root directory and it will build the program and unit tests for you.
 
