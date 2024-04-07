@@ -10,6 +10,7 @@ The project report, can be read [here](https://github.com/Sveske-Juice/hamming7-
 - [x] Decode block of bytes
 - [x] Hamming Distance utility function
 - [x] Hamming weight utility function
+- [ ] [SEC-DEC](https://en.wikipedia.org/wiki/Hamming_code#Hamming_codes_with_additional_parity_(SECDED)) extra parity bit for double error detection
 
 ## Build
 If you're on Linux just type `make` in the root directory and it will build the program and unit tests for you.
